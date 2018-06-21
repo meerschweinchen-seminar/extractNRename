@@ -1,7 +1,5 @@
-const os = require('os');
 const path = require('path');
 const fs = require('fs');
-const admZip = require('adm-zip');
 
 const deleteFolderRecursive = function deleteFolderRecursive(path) {
     if (fs.existsSync(path)) {
@@ -18,6 +16,8 @@ const deleteFolderRecursive = function deleteFolderRecursive(path) {
 };
 
 const checkPlatform = function checkPlatform() {
+    const os = require('os');
+
     const platform = os.platform();
     const osSupported = ['win32', 'linux'];
 
@@ -44,7 +44,8 @@ const syncFolders = function syncFolders(tmp, zip, fileName) {
         deleteFolderRecursive(pathToSource);
 };
 
-const extract = function extract(zip, sourceTmp, fileName) {
+const extract = function extract(zip, sourceTmp) {
+    const admZip = require('adm-zip');
     var zip = new admZip(zip);
     zip.extractAllTo(sourceTmp, true);
 };
@@ -63,7 +64,7 @@ try {
 
     const pathToSourceTmp = path.join(__dirname, `./chrome/${fileName}`);
     console.log('Extraindo arquivos...');
-    extract(pathToChromeZip, pathToSourceTmp, fileName);
+    extract(pathToChromeZip, pathToSourceTmp);
 
     console.log('Renomeando diretorio e Removendo zip temporario...');
     renameNRemove(pathToSourceTmp, pathToChromeZip, fileName);
