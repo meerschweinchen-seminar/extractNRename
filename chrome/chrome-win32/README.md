@@ -1,0 +1,1 @@
+https://storage.googleapis.com/chromium-browser-snapshots/Win_x64/564778/chrome-win32.zip
