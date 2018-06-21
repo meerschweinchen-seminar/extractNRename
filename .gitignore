@@ -59,3 +59,14 @@ typings/
 
 # next.js build output
 .next
+
+# chrome files
+chrome/**/*.zip
+chrome/**/*.tmp
+chrome/**/source/
+
+# vscode
+.vscode/
+
+# package-lock
+package-lock.json

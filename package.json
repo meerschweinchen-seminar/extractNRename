@@ -1,0 +1,16 @@
+{
+  "name": "renameextractfile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node install.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.4.11",
+    "puppeteer": "1.5.0"
+  }
+}
